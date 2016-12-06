@@ -1,4 +1,4 @@
-name 'build_cookbook'
+name 'data_bag_patcher'
 maintainer 'Nick Rycar'
 maintainer_email 'nrycar@chef.io'
 license 'apachev2'

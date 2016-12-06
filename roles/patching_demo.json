@@ -1,0 +1,25 @@
+{
+    "name": "patching_demo",
+    "description": "This is an audit role defined as JSON",
+    "chef_type": "role",
+    "json_class": "Chef::Role",
+    "default_attributes": {
+    },
+    "override_attributes": {
+      "audit": {
+        "fetcher": "chef-server",
+        "collector": "chef-visibility",
+        "server": "https://MY_COMPLIANCE_SERVER/api",
+        "refresh_token": "MY_REFRESH_TOKEN",
+        "profiles": [
+          {
+            "compliance": "admin/linux-patch-benchmark"
+          }
+        ]
+      }
+    },
+    "run_list": [
+        "recipe[audit]",
+	"recipe[simple_patcher]"
+    ]
+}

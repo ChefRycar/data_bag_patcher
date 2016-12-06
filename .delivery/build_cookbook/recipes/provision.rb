@@ -16,13 +16,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-databag="#{node['data_bag_patcher']['os']}_patchlist"
+databag="#{node['delivery']['config']['data_bag_patcher']['os']}_patchlist"
 data_bag_path = File.join(node['delivery']['workspace']['repo'], node['delivery']['config']['delivery-bag']['data-bag-repo-path'], databag)
 
 case delivery_environment 
 when workflow_project_acceptance_environment
-  new_data_bag = "#{data_bag_path}/#{node['data_bag_patcher']['acceptance_env']}.json"
-  scrubbed_env = "#{node['data_bag_patcher']['acceptance_env']}"
+  new_data_bag = "#{data_bag_path}/#{node['delivery']['config']['data_bag_patcher']['acceptance_env']}.json"
+  scrubbed_env = "#{node['delivery']['config']['data_bag_patcher']['acceptance_env']}"
 else
   new_data_bag = "#{data_bag_path}/#{delivery_environment}.json"
   scrubbed_env = delivery_environment

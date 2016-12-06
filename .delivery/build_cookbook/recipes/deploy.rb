@@ -20,9 +20,9 @@ search_query = ""
 
 case delivery_environment
 when workflow_project_acceptance_environment
-  search_query = "chef_environment:#{node['data_bag_patcher']['acceptance_env']} AND recipes:#{node['data_bag_patcher']['patching_cookbook']}"
+  search_query = "chef_environment:#{node['delivery']['config']['data_bag_patcher']['acceptance_env']} AND recipes:#{node['delivery']['config']['data_bag_patcher']['patching_cookbook']}"
 when "union", "rehearsal", "delivered"
-  search_query = "chef_environment:#{delivery_environment} AND recipes:#{node['data_bag_patcher']['patching_cookbook']}"
+  search_query = "chef_environment:#{delivery_environment} AND recipes:#{node['delivery']['config']['data_bag_patcher']['patching_cookbook']}"
 end
 
 

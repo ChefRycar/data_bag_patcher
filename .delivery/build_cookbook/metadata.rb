@@ -5,4 +5,5 @@ license 'apachev2'
 version '0.1.0'
 
 depends 'delivery-bag'
+depends 'delivery-truck'
 depends 'nodejs'

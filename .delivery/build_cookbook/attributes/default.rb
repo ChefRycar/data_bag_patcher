@@ -17,9 +17,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-default['delivery']['config']['delivery_bag_patcher']['acceptance_env'] = workflow_project_acceptance_environment
+default['delivery']['config']['data_bag_patcher']['os'] = 'ubuntu'
 
-default['delivery']['config']['delivery_bag_patcher']['os'] = 'ubuntu'
-
-default['delivery']['config']['delivery_bag_patcher']['patching_cookbook'] = 'simple_patcher'
+default['delivery']['config']['data_bag_patcher']['patching_cookbook'] = 'simple_patcher'
   

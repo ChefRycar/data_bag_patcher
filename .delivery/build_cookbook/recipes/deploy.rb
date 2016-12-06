@@ -16,15 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-search_query = ""
-
-case delivery_environment
-when workflow_project_acceptance_environment
-  search_query = "chef_environment:#{node['delivery']['config']['data_bag_patcher']['acceptance_env']} AND recipes:#{node['delivery']['config']['data_bag_patcher']['patching_cookbook']}"
-when "union", "rehearsal", "delivered"
-  search_query = "chef_environment:#{delivery_environment} AND recipes:#{node['delivery']['config']['data_bag_patcher']['patching_cookbook']}"
-end
-
+search_query = "chef_environment:#{delivery_environment} AND recipes:#{node['delivery']['config']['data_bag_patcher']['patching_cookbook']}"
 
 my_nodes = delivery_chef_server_search(:node, search_query)
 my_nodes.map!(&:name)

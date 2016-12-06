@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: build_cookbook
+# Cookbook Name::data_bag_patcher
 # Recipe:: deploy
 #
 # Copyright 2016 Nick Rycar
@@ -16,3 +16,20 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+search_query = ""
+
+case delivery_environment
+when workflow_project_acceptance_environment
+  search_query = "chef_environment:#{node['data_bag_patcher']['acceptance_env']} AND recipes:#{node['data_bag_patcher']['patching_cookbook']}"
+when "union", "rehearsal", "delivered"
+  search_query = "chef_environment:#{delivery_environment} AND recipes:#{node['data_bag_patcher']['patching_cookbook']}"
+end
+
+
+my_nodes = delivery_chef_server_search(:node, search_query)
+my_nodes.map!(&:name)
+
+delivery_push_job "deploy_#{node['delivery']['change']['project']}" do
+  command 'chef-client'
+  nodes my_nodes
+end

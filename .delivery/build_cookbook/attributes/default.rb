@@ -1,6 +1,7 @@
 #
-# Cookbook Name::data_bag_patcher
-# Recipe:: quality
+# Author:: Nick Rycar (<nrycar@chef.io>)
+# Cookbook Name:: data_bag_patcher
+# Attributes:: default
 #
 # Copyright 2016 Nick Rycar
 #
@@ -16,3 +17,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+default['delivery_bag_patcher']['acceptance_env'] = workflow_project_acceptance_environment
+
+default['delivery_bag_patcher']['os'] = 'ubuntu'
+
+default['delivery_bag_patcher']['patching_cookbook'] = 'simple_patcher'
+  

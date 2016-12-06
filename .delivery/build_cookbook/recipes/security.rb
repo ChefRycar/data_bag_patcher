@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: build_cookbook
+# Cookbook Name::data_bag_patcher
 # Recipe:: security
 #
 # Copyright 2016 Nick Rycar

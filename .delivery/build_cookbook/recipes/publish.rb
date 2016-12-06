@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: build_cookbook
+# Cookbook Name::data_bag_patcher
 # Recipe:: publish
 #
 # Copyright 2016 Nick Rycar
@@ -16,3 +16,4 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+include_recipe 'delivery-bag::publish'

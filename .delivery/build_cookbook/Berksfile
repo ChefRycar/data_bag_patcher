@@ -7,3 +7,6 @@ group :delivery do
   cookbook 'delivery-base', git: 'https://github.com/chef-cookbooks/delivery-base'
   cookbook 'test', path: './test/fixtures/cookbooks/test'
 end
+
+cookbook 'delivery-bag', github: 'johnbyrneio/delivery-bag'
+cookbook 'delivery-sugar', github: 'chef-cookbooks/delivery-sugar'
